@@ -1,0 +1,6 @@
+    def rotate(self, nums, k):
+        nums2 = nums[:]
+        x = len(nums)
+        for i in range(x):
+            nums2[(i+k)%x] = nums[i]
+        nums[:] = nums2[:]
