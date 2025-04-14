@@ -1,0 +1,11 @@
+def maxProfit(self, prices):
+        cheaprice = prices[0]
+        maxprofit = 0
+        for i in range(len(prices)):
+            if prices[i]<cheaprice:
+                cheaprice = prices[i]
+
+            if prices[i] - cheaprice > maxprofit:
+                maxprofit = prices[i] - cheaprice
+                
+        return maxprofit
