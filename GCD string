@@ -1,0 +1,15 @@
+import math
+class Solution(object):
+    def gcdOfStrings(self, str1, str2):
+        h=math.gcd(len(str1),len(str2))
+        if str1+str2!=str2+str1:
+            return""
+        else:
+            return str1[:h]
+
+        """
+        :type str1: str
+        :type str2: str
+        :rtype: str
+        """
+        
