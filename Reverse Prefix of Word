@@ -1,0 +1,11 @@
+class Solution(object):
+    def reversePrefix(self,word, ch):
+        if ch in word:
+            x=word.partition(ch)
+            nl=x[1]+x[0][::-1]+x[2]
+            return nl
+        else:
+            return word
+    
+
+    
