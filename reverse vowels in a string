@@ -1,0 +1,20 @@
+class Solution(object):
+    def reverseVowels(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        li=list(s)
+        v=set('aeiouAEIOU')
+        h=0
+        l=len(li)-1
+        while l>h:
+            if li[h] in v and li[l] in v:
+                li[h],li[l] = li[l],li[h]
+                h+=1
+                l-=1
+            elif li[h] not in v:
+                h+=1
+            elif li[l] not in v:
+                l-=1
+        return "".join(li)
