@@ -1,0 +1,12 @@
+class Solution(object):
+    def isPalindrome(self, x):
+        y=0
+        x_=x
+        while x>0:
+            y=(y*10)+(x%10)
+            x//=10
+        if x_==y:
+            return True
+        else:
+            return False
+        
