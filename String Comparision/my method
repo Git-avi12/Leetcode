@@ -1,0 +1,31 @@
+class Solution(object):
+    def compress(self, chars):
+        """
+        :type chars: List[str]
+        :rtype: int
+        """
+        stt=""
+        ch=chars[0]
+        fr=0
+        for i in chars:
+            if i==ch:
+                fr+=1
+            else:
+                if fr==1:
+                    stt=stt+ch
+                else:
+                    stt=stt+ch+str(fr)
+                ch=i
+                fr=1
+        if fr==1:
+            stt=stt+ch
+        else:
+            stt=stt+ch+str(fr)
+            
+        for i in  range(len(stt)):
+            chars[i] = stt[i]
+        return len(stt)
+                
+
+
+        
