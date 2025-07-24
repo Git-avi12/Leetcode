@@ -1,0 +1,5 @@
+l=0
+for i in ranga(len(nums)):
+  if nums[i]:
+    nums[i],nums[r]=nums[r],nums[i]
+    l+=1
