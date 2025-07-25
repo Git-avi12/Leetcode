@@ -1,0 +1,19 @@
+class Solution(object):
+    def isSubsequence(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: bool
+        """
+        fir=0
+        if len(s)>0:
+            for sec in range(len(t)):
+                if s[fir]==t[sec]:
+                    fir+=1
+                if fir==len(s):
+                    return True
+            return False
+        else:
+            return True
+
+        
