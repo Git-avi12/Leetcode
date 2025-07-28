@@ -1,0 +1,21 @@
+class Solution(object):
+    def longestOnes(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: int
+        """
+        zCount=0
+        MaxCount=0
+        left=0
+        for right in range(0,len(nums)):
+            if nums[right]==0:
+                zCount+=1
+                while zCount>k:
+                    if nums[left]==0:
+                        zCount-=1
+                    left+=1
+            MaxCount = max(MaxCount,(right-left+1))
+        return MaxCount
+
+            
