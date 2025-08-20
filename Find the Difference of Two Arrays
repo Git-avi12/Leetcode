@@ -1,0 +1,33 @@
+class Solution:
+    def findDifference(self, nums1: List[int], nums2: List[int]) -> List[List[int]]:
+        set1 = set(nums1)
+        set2 = set(nums2)
+        return [list(set1-set2),list(set2-set1)]
+
+        
+        # h_map={}
+        # res=[[],[]]
+        # for i in nums1:
+        #     if i not in h_map:
+        #         h_map[i] = 1
+        # for j in nums2:
+        #     if j not in h_map:
+        #         h_map[j] = 2
+        #     elif h_map[j] == 1:
+        #         h_map[j] = 3
+        # for i in h_map:
+        #     if h_map[i]==1:
+        #         res[0].append(i)
+        #     elif h_map[i] == 2:
+        #         res[1].append(i)
+        # return res
+        
+        
+        # res = [[],[]]
+        # for i in nums1:
+        #     if i not in nums2 and i not in res[0]:
+        #         res[0].append(i)
+        # for i in nums2:
+        #     if i not in nums1 and i not in res[1]:
+        #         res[1].append(i)
+        # return res
