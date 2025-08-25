@@ -1,0 +1,30 @@
+class Solution:
+    def evalRPN(self, tokens: List[str]) -> int:
+        opr = {"+": lambda a,b:b+a,
+                "-" : lambda a,b:b-a,
+                '*' : lambda a,b:b*a,
+                "/" : lambda a,b:int(b/a)}
+        stack = []
+        for token in tokens:
+            if token not in opr.keys():
+                stack.append(int(token))
+            else:
+                a = stack.pop()
+                b = stack.pop()
+                stack.append(opr[token](a,b))
+                
+        return int(stack[-1])
+        
+      
+        # op = "+/*-"
+        # stack = []
+        # for i in tokens:
+        #     if i not in op:
+        #         stack.append(i)
+        #     else:
+        #         a = str(stack.pop())
+        #         b = str(stack.pop())
+        #         s = b+i+a
+        #         stack.append(int(eval(s)))
+        # return stack[-1]
+        
