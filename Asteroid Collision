@@ -1,0 +1,32 @@
+
+class Solution:
+    def asteroidCollision(self, asteroids: List[int]) -> List[int]:
+        stack = []
+        for i in asteroids:
+            if (not stack) or (not(stack[-1]>0 and i<0)):
+                stack.append(i)
+            else:
+                if abs(stack[-1]) < abs(i):
+                    while(stack and abs(stack[-1])<abs(i)) and stack[-1]>0:
+                        stack.pop()
+                    if not stack or stack[-1]<0:
+                        stack.append(i)
+                if abs(stack[-1]) == abs(i) and stack[-1]>0:
+                    stack.pop()
+        return stack
+
+                
+# class Solution:
+#     def asteroidCollision(self, asteroids: List[int]) -> List[int]:
+#         stack = []
+#         for a in asteroids:
+#             while stack and stack[-1] > 0 and a < 0:
+#                 if stack[-1] < -a:       # stack top explodes
+#                     stack.pop()
+#                     continue             # keep checking next top
+#                 elif stack[-1] == -a:    # both explode
+#                     stack.pop()
+#                 break                     # current asteroid dies
+#             else:
+#                 stack.append(a)
+#         return stack
