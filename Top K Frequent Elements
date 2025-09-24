@@ -1,0 +1,14 @@
+from collections import Counter
+class Solution(object):
+    def topKFrequent(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: List[int]
+        """
+        dic = Counter(nums)
+        dic = sorted(dic.items(),key=lambda x: (-x[1]))
+        res = []
+        res.extend(dic[x][0] for x in range(0,k))
+        return res
+        
