@@ -1,0 +1,24 @@
+class Solution(object):
+    def subarraySum(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: int
+        """
+        subarr_sum = 0
+        count = 0
+        hashmap = {0:1}
+        for i in nums:
+            subarr_sum+=i
+            res = subarr_sum-k
+            count+=hashmap.get(res,0)# if res in hashmap: #count+=hashmap[res]
+            hashmap[subarr_sum] = 1 + hashmap.get(subarr_sum,0)# if subarr_sum in hashmap:# hashmap[subarr_sum]+=1 # else: # hashmap[subarr_sum]=1
+        return count
+        # count=0
+        # for i in range(len(nums)):
+        #     sumarr=0
+        #     for j in range(i,len(nums)):
+        #         sumarr+=nums[j]
+        #         if sumarr == k:
+        #             count+=1
+        # return count
