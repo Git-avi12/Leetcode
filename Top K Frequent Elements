@@ -1,4 +1,18 @@
 from collections import Counter
+import heapq
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        freq_dict = Counter(nums)
+        res=[]
+        for val,freq in freq_dict.items():
+            heapq.heappush(res,(freq,val))
+            if len(res)>k:
+                heapq.heappop(res)
+        return list(x[1] for x in res)
+             
+
+
+from collections import Counter
 class Solution(object):
     def topKFrequent(self, nums, k):
         """
@@ -6,9 +20,10 @@ class Solution(object):
         :type k: int
         :rtype: List[int]
         """
-        dic = Counter(nums)
-        dic = sorted(dic.items(),key=lambda x: (-x[1]))
-        res = []
-        res.extend(dic[x][0] for x in range(0,k))
-        return res
+        
+        #dic = Counter(nums)
+        #dic = sorted(dic.items(),key=lambda x: (-x[1]))
+        #res = []
+        #res.extend(dic[x][0] for x in range(0,k))
+        #return res
         
