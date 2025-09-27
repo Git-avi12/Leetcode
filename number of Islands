@@ -1,0 +1,21 @@
+class Solution(object):
+    def numIslands(self, grid):
+        row,col = len(grid),len(grid[0])
+        visited = set()
+        def dfs_iter_grid(r,c):
+            stack = [(r,c)]
+            while stack:
+                x,y = stack.pop()
+                if (x,y) not in visited and grid[x][y] == "1":
+                    visited.add((x,y))
+                    for i,j in [(-1,0),(1,0),(0,-1),(0,1)]:
+                        nx,ny = i+x,j+y
+                        if 0<=nx<row and 0<=ny<col:
+                            stack.append((nx,ny))
+        count = 0
+        for i in range(row):
+            for j in range(col):
+                if (i,j) not in visited and grid[i][j] == "1":
+                    dfs_iter_grid(i,j)
+                    count+=1
+        return count
