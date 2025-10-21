@@ -1,0 +1,21 @@
+class Solution:
+    def predictPartyVictory(self, senate: str) -> str:
+        Rq = deque()
+        Dq = deque()
+        n = len(senate)
+        for i in range(n):
+            if senate[i] == "R":
+                Rq.append(i)
+            else:
+                Dq.append(i)
+        while len(Rq)!=0 and len(Dq)!=0:
+            r = Rq.popleft()
+            d = Dq.popleft()
+            if r<d:
+                Rq.append(r+n)
+            else:
+                Dq.append(d+n)
+        if len(Rq)==0:
+            return "Dire"
+        else:
+            return "Radiant"
